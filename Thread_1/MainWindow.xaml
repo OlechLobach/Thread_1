@@ -1,12 +1,28 @@
-﻿<Window x:Class="Thread_1.MainWindow"
+﻿<Window x:Class="ProcessManager.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Thread_1"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Process Manager" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+            <Label Content="Update Interval (seconds):" VerticalAlignment="Center"/>
+            <TextBox x:Name="UpdateIntervalTextBox" Width="50" Margin="5"/>
+            <Button Content="Set Interval" Click="SetIntervalButton_Click" Margin="5"/>
+        </StackPanel>
+
+        <ListBox x:Name="ProcessesListBox" Grid.Row="1" Margin="10" SelectionChanged="ProcessesListBox_SelectionChanged"/>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" Margin="10">
+            <Button Content="Terminate Process" Click="TerminateProcessButton_Click" Margin="5"/>
+            <Button Content="Launch Notepad" Click="LaunchNotepadButton_Click" Margin="5"/>
+            <Button Content="Launch Calculator" Click="LaunchCalculatorButton_Click" Margin="5"/>
+            <Button Content="Launch Paint" Click="LaunchPaintButton_Click" Margin="5"/>
+            <Button Content="Launch Custom App" Click="LaunchCustomAppButton_Click" Margin="5"/>
+        </StackPanel>
     </Grid>
 </Window>
